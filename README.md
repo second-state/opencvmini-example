@@ -14,7 +14,7 @@ make -j
 cmake --install . # might need `sudo`
 ```
 
-Then in this repository runs
+Then run this repository by the command:
 
 ```shell
 make

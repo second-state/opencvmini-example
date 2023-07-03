@@ -12,6 +12,8 @@ extern "C" {
     pub fn blur(arg0: i32) -> i32;
     #[link_name = "wasmedge_opencvmini_normalize"]
     pub fn normalize(arg0: i32) -> i32;
+    #[link_name = "wasmedge_opencvmini_bilinear_sampling"]
+    pub fn bilinear_sampling(arg0: i32, w: i32, h: i32) -> i32;
 }
 
 use std::fs;
@@ -25,6 +27,7 @@ fn main() {
         let src = imdecode(v.as_ptr() as i32, v.len() as i32);
         let output = blur(src);
         let output = normalize(output);
+        let output = bilinear_sampling(output, 100, 100);
 
         let mut buf: Vec<f32> = vec![];
         buf.resize(v.len(), 0.);
