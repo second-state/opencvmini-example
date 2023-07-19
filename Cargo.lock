@@ -5,3 +5,12 @@ version = 3
 [[package]]
 name = "plugin-example"
 version = "0.1.0"
+dependencies = [
+ "wasmedge_tensorflow_interface",
+]
+
+[[package]]
+name = "wasmedge_tensorflow_interface"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2ac5e1120d18f4b0b2b7b641838d8a2cc1e90b090a2268a090ea2bfe85256122"
