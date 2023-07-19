@@ -29,8 +29,8 @@ fn main() {
 
     println!("start");
 
-    let mut buf: Vec<f32> = vec![];
-    buf.resize(v.len(), 0.);
+    let mut buf: Vec<u8> = vec![];
+    buf.resize(270000, 0);
 
     unsafe {
         let img = imdecode(v.as_ptr() as i32, v.len() as i32);
@@ -44,7 +44,9 @@ fn main() {
     session
         .add_input("normalized_input_image_tensor", &buf)
         .run();
-    let res_vec: Vec<u8> = session.get_output("tensorflow/serving/classify");
+    println!("input added");
+
+    let res_vec: Vec<u8> = session.get_output("TFLite_Detection_PostProcess");
     println!("{:?}", res_vec);
 
     println!("done");
