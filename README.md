@@ -1,6 +1,8 @@
 # opencvmini example
 
-[opencvmini](https://github.com/WasmEdge/WasmEdge/pull/2648) is not released plugin yet, you will need to checkout branch `plugin-opencvmini` of repository [WasmEdge](https://github.com/WasmEdge/WasmEdge), and run the following commands to install this special version:
+## Dependencies
+
+[opencvmini](https://github.com/WasmEdge/WasmEdge/tree/master/plugins/wasmedge_opencvmini) is a wasmedge plugin, you might like to clone repository [WasmEdge](https://github.com/WasmEdge/WasmEdge), and run the following commands to install this plugin.
 
 ```shell
 # In repository wasmedge
@@ -14,7 +16,9 @@ ninja
 ninja install # might need `sudo`
 ```
 
-Then run this repository by the command:
+## Run this repository
+
+By the command:
 
 ```shell
 cargo build --target wasm32-wasi --release
