@@ -3,21 +3,16 @@ extern "C" {
     #[link_name = "wasmedge_opencvmini_imdecode"]
     pub fn imdecode(arg0: i32, arg1: i32) -> i32;
     #[link_name = "wasmedge_opencvmini_imencode"]
-    pub fn imencode(arg0: i32, arg1: i32, arg2: i32);
+    pub fn imencode(arg0: i32, arg1: i32, arg2: i32, arg3: i32, arg4: i32);
 
     #[link_name = "wasmedge_opencvmini_imwrite"]
     pub fn imwrite(arg0: i32, arg1: i32, arg2: i32);
 
-    #[link_name = "wasmedge_opencvmini_blur"]
-    pub fn blur(arg0: i32) -> i32;
     #[link_name = "wasmedge_opencvmini_normalize"]
     pub fn normalize(arg0: i32) -> i32;
-    #[link_name = "wasmedge_opencvmini_bilinear_sampling"]
-    pub fn bilinear_sampling(arg0: i32, w: i32, h: i32) -> i32;
 }
 
 use std::fs;
-use wasmedge_tensorflow_interface::{self};
 
 fn main() {
     let v = fs::read("asset/35k.jpg").expect("failed to open image");
@@ -37,7 +32,14 @@ fn main() {
         let img = normalize(img);
 
         // encode back to instance's buffer
-        imencode(img, buf.as_ptr() as i32, buf.len() as i32);
+        let ext = ".jpg";
+        imencode(
+            ext.as_ptr() as i32,
+            ext.len() as i32,
+            img,
+            buf.as_ptr() as i32,
+            buf.len() as i32,
+        );
     }
 
     println!("add input");
