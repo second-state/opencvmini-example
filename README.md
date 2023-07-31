@@ -1,5 +1,8 @@
 # opencvmini example
 
+> **Warning**
+> This repository is moved to https://github.com/second-state/opencvmini/tree/main/example/object-detection
+
 ## Dependencies
 
 [opencvmini](https://github.com/WasmEdge/WasmEdge/tree/master/plugins/wasmedge_opencvmini) is a wasmedge plugin, you might like to clone repository [WasmEdge](https://github.com/WasmEdge/WasmEdge), and run the following commands to install this plugin.
